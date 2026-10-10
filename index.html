@@ -3,314 +3,383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة اللغات التعليمية الذكية - جميع الصفوف</title>
-    <style>
-        :root {
-            --primary: #1b4f72;
-            --secondary: #2e86c1;
-            --accent: #28b463;
-            --ai-color: #8e44ad;
-            --bg-color: #f4f7f6;
-            --card-bg: #ffffff;
+    <title>أكاديمية الطلائع لبرمجة الأطفال</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Cairo Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        brandDark: '#0B0F19',
+                        brandCard: '#111827',
+                        brandAccent: '#10B981',
+                        brandSecondary: '#3B82F6',
+                        brandPurple: '#8B5CF6',
+                    }
+                }
+            }
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); margin: 0; padding: 20px; color: #333; }
-        header { background: var(--primary); color: white; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        header h1 { margin: 0 0 10px 0; font-size: 2em; }
-        header p { margin: 0; font-size: 1.1em; opacity: 0.9; }
-        
-        .study-tip { background: #d4efdf; border: 1px solid #a9dfbf; padding: 15px; border-radius: 8px; margin: 25px 0; text-align: center; font-weight: bold; color: #145a32; }
-
-        .stage-container { margin-top: 35px; }
-        .stage-title { background: var(--secondary); color: white; padding: 12px 20px; border-radius: 6px; font-size: 1.4em; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        
-        .grades-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-        
-        .card { background: var(--card-bg); border: 1px solid #ddd; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
-        
-        .card h3 { color: var(--primary); margin-top: 0; border-bottom: 2px solid var(--secondary); padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
-        .card h3 span { font-size: 0.7em; background: #eaf2f8; color: var(--secondary); padding: 3px 8px; border-radius: 4px; }
-        
-        .subjects-list { list-style-type: none; padding: 0; text-align: left; direction: ltr; font-size: 0.9em; color: #444; background: #f9f9f9; padding: 10px; border-radius: 6px; margin: 10px 0; }
-        .subjects-list li { margin-bottom: 5px; border-bottom: 1px solid #eee; padding-bottom: 3px; }
-        .arabic-sub { direction: rtl; text-align: right; }
-        
-        .ai-box { background: #f4ecf7; border: 1px solid #d2b4de; padding: 10px; border-radius: 6px; margin-top: 10px; font-size: 0.85em; color: #512e5f; }
-        .ai-title { color: var(--ai-color); font-weight: bold; margin-bottom: 4px; display: flex; align-items: center; gap: 5px; }
-        
-        .btn-group { display: flex; gap: 8px; margin-top: 15px; }
-        .btn { flex: 1; display: block; background: var(--accent); color: white; padding: 9px; text-align: center; text-decoration: none; border-radius: 6px; font-size: 0.9em; font-weight: bold; transition: background 0.2s; }
-        .btn-ai { background: var(--ai-color); }
-        .btn:hover { opacity: 0.85; }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        /* Custom Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom Animated Gradients */
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.4);
+        }
+        .glow-emerald {
+            box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.4);
+        }
     </style>
 </head>
-<body>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-brandAccent selection:text-slate-950">
 
-    <header>
-        <h1>منصة اللغات التعليمية الذكية (Languages & AI Hub)</h1>
-        <p>دليلك المتكامل لمناهج مدارس اللغات والتجريبي من الأولى ابتدائي حتى الثانية ثانوي مع مساعد ذكي لكل صف</p>
+    <header class="bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800/80 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="bg-gradient-to-tr from-brandAccent via-brandSecondary to-brandPurple p-3 rounded-2xl text-slate-950 shadow-md">
+                    <i class="fa-solid fa-code text-2xl font-black"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-black bg-gradient-to-r from-brandAccent via-brandSecondary to-brandPurple bg-clip-text text-transparent">
+                        أكاديمية الطلائع
+                    </h1>
+                    <p class="text-xs text-slate-400 font-semibold">لتعليم برمجة الأطفال (7 - 11 سنة)</p>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex items-center space-x-8 space-x-reverse font-bold text-sm">
+                <a href="#about" class="hover:text-brandAccent transition-colors">عن الأكاديمية</a>
+                <a href="#courses" class="hover:text-brandAccent transition-colors">الدورات والأسعار</a>
+                <a href="#register" class="hover:text-brandAccent transition-colors">للإستفسارات والحجز</a>
+            </nav>
+
+            <div>
+                <a href="https://wa.me/201121955935" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-600/20 transition-all flex items-center space-x-2 space-x-reverse text-sm">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span class="hidden sm:inline">تواصل مباشر</span>
+                </a>
+            </div>
+        </div>
     </header>
 
-    <div class="study-tip">
-        ⏱️ نظام المذاكرة المعتمد في المنصة: <strong>45 دقيقة تركيز تام</strong> يتبعها <strong>15 دقيقة راحة واسترخاء</strong> لضمان أعلى استيعاب!
-    </div>
-
-    <!-- ================= المرحلة الابتدائية ================= -->
-    <div class="stage-container">
-        <div class="stage-title">🎒 Primary Stage (المرحلة الابتدائية)</div>
-        <div class="grades-grid">
+    <section class="relative overflow-hidden py-16 lg:py-28 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#3B82F6_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             
-            <!-- الصف الأول الابتدائي -->
-            <div class="card">
-                <div>
-                    <h3>Grade 1 <span>الابتدائية</span></h3>
-                    <ul class="subjects-list">
-                        <li>Arabic Language <span class="arabic-sub">(عربي)</span></li>
-                        <li>English Language</li>
-                        <li>Math</li>
-                        <li>Discover</li>
-                        <li>Religion <span class="arabic-sub">(دين)</span></li>
-                    </ul>
-                    <div class="ai-box">
-                        <div class="ai-title">🤖 Grade 1 AI Assistant:</div>
-                        مساعد تفاعلي لشرح الحروف، تأسيس الكلمات، وأساسيات الـ Math بطرق ممتعة وبسيطة.
-                    </div>
-                </div>
-                <div class="btn-group">
-                    <a href="#g1-subjects" class="btn">المناهج والملخصات</a>
-                    <a href="#g1-ai" class="btn btn-ai">اسأل الـ AI</a>
-                </div>
+            <div class="inline-flex items-center space-x-2 space-x-reverse bg-slate-900 border border-slate-800 text-brandAccent font-bold px-4 py-2 rounded-full text-xs sm:text-sm mb-8 shadow-inner">
+                <span class="w-2.5 h-2.5 rounded-full bg-brandAccent animate-ping"></span>
+                <span>القبول مخصص حصرياً للأطفال من عمر 7 إلى 11 سنة</span>
             </div>
 
-            <!-- الصف الثاني الابتدائي -->
-            <div class="card">
-                <div>
-                    <h3>Grade 2 <span>الابتدائية</span></h3>
-                    <ul class="subjects-list">
-                        <li>Arabic Language <span class="arabic-sub">(عربي)</span></li>
-                        <li>English Language</li>
-                        <li>Math</li>
-                        <li>Discover</li>
-                        <li>Religion <span class="arabic-sub">(دين)</span></li>
-                    </ul>
-                    <div class="ai-box">
-                        <div class="ai-title">🤖 Grade 2 AI Assistant:</div>
-                        يساعدك في حل تمارين الجمع والطرح، وجمل القراءة وقواعد الـ English المبسطة.
-                    </div>
-                </div>
-                <div class="btn-group">
-                    <a href="#g2-subjects" class="btn">المناهج والملخصات</a>
-                    <a href="#g2-ai" class="btn btn-ai">اسأل الـ AI</a>
-                </div>
-            </div>
+            <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-tight">
+                ابتدئ رحلة طفلك البرمجية في <br class="hidden sm:inline">
+                <span class="bg-gradient-to-r from-brandAccent via-brandSecondary to-brandPurple bg-clip-text text-transparent">أكاديمية الطلائع لبرمجة الأطفال</span>
+            </h2>
 
-            <!-- الصف الثالث الابتدائي -->
-            <div class="card">
-                <div>
-                    <h3>Grade 3 <span>الابتدائية</span></h3>
-                    <ul class="subjects-list">
-                        <li>Arabic Language <span class="arabic-sub">(عربي)</span></li>
-                        <li>English Language</li>
-                        <li>Math</li>
-                        <li>Discover</li>
-                        <li>Religion <span class="arabic-sub">(دين)</span></li>
-                    </ul>
-                    <div class="ai-box">
-                        <div class="ai-title">🤖 Grade 3 AI Assistant:</div>
-                        خبير في تبسيط جداول الضرب، مفاهيم مادة الـ Discover، والقصص القصيرة.
-                    </div>
-                </div>
-                <div class="btn-group">
-                    <a href="#g3-subjects" class="btn">المناهج والملخصات</a>
-                    <a href="#g3-ai" class="btn btn-ai">اسأل الـ AI</a>
-                </div>
-            </div>
+            <p class="max-w-2xl mx-auto text-slate-400 text-base sm:text-lg mb-10 leading-relaxed">
+                نصنع من طفلك مبرمج المستقبل من خلال تعليم لغات العصر مثل <strong class="text-white">Python</strong> و <strong class="text-white">Front-End</strong> بأحدث الأساليب المبتكرة والمبسطة.
+            </p>
 
-            <!-- الصف الرابع الابتدائي -->
-            <div class="card">
-                <div>
-                    <h3>Grade 4 <span>الابتدائية</span></h3>
-                    <ul class="subjects-list">
-                        <li>Arabic, English, Math, Science</li>
-                        <li>Social Studies, ICT, Skills, Religion</li>
-                    </ul>
-                    <div class="ai-box">
-                        <div class="ai-title">🤖 Grade 4 AI Assistant:</div>
-                        متخصص في تبسيط مصطلحات الـ Science والـ Math المعقدة بطريقة تفاعلية سلسة.
-                    </div>
-                </div>
-                <div class="btn-group">
-                    <a href="#g4-subjects" class="btn">المناهج والملخصات</a>
-                    <a href="#g4-ai" class="btn btn-ai">اسأل الـ AI</a>
-                </div>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#register" class="w-full sm:w-auto bg-gradient-to-r from-brandAccent to-brandSecondary text-slate-950 font-black px-8 py-4 rounded-2xl shadow-xl shadow-brandAccent/20 hover:scale-105 transition-all text-center">
+                    احجز الآن أو استفسر
+                </a>
+                <a href="#courses" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-slate-200 font-bold px-8 py-4 rounded-2xl border border-slate-800 transition-all text-center">
+                    عرض الأسعار والدورات
+                </a>
             </div>
-
-            <!-- الصف الخامس الابتدائي -->
-            <div class="card">
-                <div>
-                    <h3>Grade 5 <span>الابتدائية</span></h3>
-                    <ul class="subjects-list">
-                        <li>Arabic, English, Math, Science</li>
-                        <li>Social Studies, ICT, Skills, Religion</li>
-                    </ul>
-                    <div class="ai-box">
-                        <div class="ai-title">🤖 Grade 5 AI Assistant:</div>
-                        مساعد خبير لحل مسائل الكسور، وحدات القياس، ومراجعة تجارب الـ Science.
-                    </div>
-                </div>
-                <div class="btn-group">
-                    <a href="#g5-subjects" class="btn">المناهج والملخصات</a>
-                    <a href="#g5-ai" class="btn btn-ai">اسأل الـ AI</a>
-                </div>
-            </div>
-
-            <!-- الصف السادس الابتدائي -->
-            <div class="card">
-                <div>
-                    <h3>Grade 6 <span>الابتدائية</span></h3>
-                    <ul class="subjects-list">
-                        <li>Arabic, English, Math, Science</li>
-                        <li>Social Studies, ICT, Skills, Religion</li>
-                    </ul>
-                    <div class="ai-box">
-                        <div class="ai-title">🤖 Grade 6 AI Assistant:</div>
-                        يساعدك في مراجعة منهج الـ Science المتقدم وقواعد الـ Grammar باللغة الإنجليزية.
-                    </div>
-                </div>
-                <div class="btn-group">
-                    <a href="#g6-subjects" class="btn">المناهج والملخصات</a>
-                    <a href="#g6-ai" class="btn btn-ai">اسأل الـ AI</a>
-                </div>
-            </div>
-
         </div>
-    </div>
+    </section>
 
-    <!-- ================= المرحلة الإعدادية ================= -->
-    <div class="stage-container">
-        <div class="stage-title">🏫 Preparatory Stage (المرحلة الإعدادية - لغات)</div>
-        <div class="grades-grid">
-            
-            <!-- الأول الإعدادي -->
-            <div class="card">
+    <section id="about" class="py-20 bg-slate-900/50 border-y border-slate-800/80 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
                 <div>
-                    <h3>1st Preparatory <span>الأول الإعدادي</span></h3>
-                    <ul class="subjects-list">
-                        <li>Arabic Language <span class="arabic-sub">(عربي)</span></li>
-                        <li>English Language</li>
-                        <li><strong>Second Foreign Language (German / French)</strong></li>
-                        <li>Math (Algebra & Geometry)</li>
-                        <li>Science (Physics, Chem, Bio)</li>
-                        <li>Social Studies, Computer, Religion</li>
-                    </ul>
-                    <div class="ai-box">
-                        <div class="ai-title">🤖 1st Prep AI Assistant:</div>
-                        خبير في قوانين الجبر والهندسة، القواعد الألمانية/الفرنسية، وأسئلة الـ Science.
+                    <span class="text-brandAccent font-bold text-xs uppercase tracking-widest bg-brandAccent/10 px-3 py-1 rounded-full">عن الأكاديمية والمحاضر</span>
+                    <h3 class="text-3xl sm:text-4xl font-black mt-3 mb-6">رؤيتنا في تعليم البرمجة للصغار</h3>
+                    <p class="text-slate-300 leading-relaxed mb-6">
+                        أهلاً بكم في <strong class="text-brandAccent">أكاديمية الطلائع</strong>! نحن متكفلون برعاية وتحفيز شغف الأطفال بعالم التكنولوجيا. البرمجة ليست مجرد كتابة شفرات، بل هي وسيلة لتنفيذ الأفكار الإبداعية وبناء التفكير المنطقي والتحليلي لدى الطفل.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed mb-8">
+                        نقوم بشرح لغات البرمجة (بايثون وفرونت إند) بأسلوب ممتع يبسط الأعقد للمفاهيم، مع الاعتماد التام على التطبيق العملي والمشاريع التفاعلية التي تمكن الطفل من إنشاء ألعابه وموقعه الإلكتروني الخاص.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800">
+                            <i class="fa-solid fa-child-reaching text-brandAccent text-2xl mb-2"></i>
+                            <h4 class="font-bold text-white mb-1">فئة عمرية محددة</h4>
+                            <p class="text-xs text-slate-400">مناسبة تماماً للقدرات الذهنية للأطفال من 7 إلى 11 سنة.</p>
+                        </div>
+                        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800">
+                            <i class="fa-solid fa-lightbulb text-brandSecondary text-2xl mb-2"></i>
+                            <h4 class="font-bold text-white mb-1">تعليم بالابتكار</h4>
+                            <p class="text-xs text-slate-400">تحويل الفضول الرقمي إلى ابتكار ألعاب ومواقع حقيقية.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="btn-group">
-                    <a href="#prep1-subjects" class="btn">المناهج والملخصات</a>
-                    <a href="#prep1-ai" class="btn btn-ai">اسأل الـ AI</a>
-                </div>
-            </div>
 
-            <!-- الثاني الإعدادي -->
-            <div class="card">
-                <div>
-                    <h3>2nd Preparatory <span>الثاني الإعدادي</span></h3>
-                    <ul class="subjects-list">
-                        <li>Arabic Language <span class="arabic-sub">(عربي)</span></li>
-                        <li>English Language</li>
-                        <li><strong>Second Foreign Language (German / French)</strong></li>
-                        <li>Math (Algebra & Geometry)</li>
-                        <li>Science (Physics, Chem, Bio)</li>
-                        <li>Social Studies, Computer, Religion</li>
+                <div class="bg-gradient-to-tr from-slate-900 via-slate-900 to-slate-800 p-8 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-brandAccent/10 rounded-full blur-2xl"></div>
+                    
+                    <h4 class="text-xl font-black text-white mb-6 flex items-center space-x-2 space-x-reverse">
+                        <i class="fa-solid fa-graduation-cap text-brandAccent"></i>
+                        <span>شروط الانضمام والقبول</span>
+                    </h4>
+
+                    <ul class="space-y-4 text-slate-300 font-medium">
+                        <li class="flex items-start space-x-3 space-x-reverse">
+                            <div class="bg-brandAccent/20 text-brandAccent p-1 rounded-lg text-sm mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span>العمر المسموح به: <strong class="text-white">من 7 سنوات وحتى 11 سنة فقط</strong>.</span>
+                        </li>
+                        <li class="flex items-start space-x-3 space-x-reverse">
+                            <div class="bg-brandAccent/20 text-brandAccent p-1 rounded-lg text-sm mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span>توفير جهاز حاسوب أو لابتوب للطفل للتطبيق العملي.</span>
+                        </li>
+                        <li class="flex items-start space-x-3 space-x-reverse">
+                            <div class="bg-brandAccent/20 text-brandAccent p-1 rounded-lg text-sm mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span>التزام ولي الأمر بمتابعة التطبيقات الأسبوعية للطفل.</span>
+                        </li>
                     </ul>
-                    <div class="ai-box">
-                        <div class="ai-title">🤖 2nd Prep AI Assistant:</div>
-                        يساعدك في حل مسائل التحليل، نظريات الهندسة، وتجارب الفيزياء باللغة الإنجليزية.
+
+                    <div class="mt-8 pt-6 border-t border-slate-800 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-slate-400">للتواصل المباشر مع الأكاديمية</p>
+                            <p class="text-lg font-black text-brandAccent" dir="ltr">01121955935</p>
+                        </div>
+                        <a href="https://wa.me/201121955935" target="_blank" class="bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition-all border border-emerald-500/30">
+                            واتساب
+                        </a>
                     </div>
                 </div>
-                <div class="btn-group">
-                    <a href="#prep2-subjects" class="btn">المناهج والملخصات</a>
-                    <a href="#prep2-ai" class="btn btn-ai">اسأل الـ AI</a>
-                </div>
-            </div>
 
-            <!-- الثالث الإعدادي -->
-            <div class="card">
-                <div>
-                    <h3>3rd Preparatory <span>الثالث الإعدادي</span></h3>
-                    <ul class="subjects-list">
-                        <li>Arabic Language <span class="arabic-sub">(عربي)</span></li>
-                        <li>English Language</li>
-                        <li><strong>Second Foreign Language (German / French)</strong></li>
-                        <li>Math, Science, Social Studies</li>
-                        <li>Computer, Religion</li>
-                    </ul>
-                    <div class="ai-box">
-                        <div class="ai-title">🤖 3rd Prep AI Assistant:</div>
-                        مساعد خاص للشهادة الإعدادية لحل محافظات السنين السابقة وأسئلة الفهم العالي.
-                    </div>
-                </div>
-                <div class="btn-group">
-                    <a href="#prep3-subjects" class="btn">المناهج والملخصات</a>
-                    <a href="#prep3-ai" class="btn btn-ai">اسأل الـ AI</a>
-                </div>
             </div>
-
         </div>
-    </div>
+    </section>
 
-    <!-- ================= المرحلة الثانوية ================= -->
-    <div class="stage-container">
-        <div class="stage-title">🎓 Secondary Stage (المرحلة الثانوية)</div>
-        <div class="grades-grid">
-            
-            <!-- الأول الثانوي -->
-            <div class="card">
-                <div>
-                    <h3>1st Secondary <span>الأول الثانوي</span></h3>
-                    <ul class="subjects-list">
-                        <li>Arabic & English Languages</li>
-                        <li><strong>Second Foreign Language (German / French / Italian / Spanish)</strong></li>
-                        <li>Math (Algebra, Trigonometry, Analytic Geo)</li>
-                        <li>Integrated Science / Sciences</li>
-                        <li>History, Geography, Philosophy & Logic</li>
-                    </ul>
-                    <div class="ai-box">
-                        <div class="ai-title">🤖 1st Sec AI Assistant:</div>
-                        مساعد ذكي مدرب على نظام التابلت الحديث وأسئلة الفهم والتحليل في جميع المواد.
-                    </div>
-                </div>
-                <div class="btn-group">
-                    <a href="#sec1-subjects" class="btn">المناهج والملخصات</a>
-                    <a href="#sec1-ai" class="btn btn-ai">اسأل الـ AI</a>
-                </div>
+    <section id="courses" class="py-20 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brandAccent font-bold text-xs uppercase tracking-widest bg-brandAccent/10 px-3 py-1 rounded-full">الدورات والأسعار</span>
+                <h3 class="text-3xl sm:text-4xl font-black mt-3 mb-4">اختر الكورس المناسب لطفلك</h3>
+                <p class="text-slate-400">أسعار مناسبة ومحتوى تعليمي متكامل مخصص للفئة العمرية من 7 إلى 11 سنة.</p>
             </div>
 
-            <!-- الثاني الثانوي -->
-            <div class="card">
-                <div>
-                    <h3>2nd Secondary <span>الثاني الثانوي</span></h3>
-                    <ul class="subjects-list">
-                        <li>Arabic, English, <strong>2nd Lang (German / French...)</strong></li>
-                        <li><strong>Sci Section:</strong> Pure Math, Mechanics, Physics, Chemistry, Biology</li>
-                        <li><strong>Arts Section:</strong> History, Geography, Psychology, Philosophy</li>
-                    </ul>
-                    <div class="ai-box">
-                        <div class="ai-title">🤖 2nd Sec AI Assistant:</div>
-                        خبير تفاضل وتكامل، ميكانيكا (Statics & Dynamics)، وقوانين الفيزياء المتقدمة.
-                    </div>
-                </div>
-                <div class="btn-group">
-                    <a href="#sec2-subjects" class="btn">المناهج والملخصات</a>
-                    <a href="#sec2-ai" class="btn btn-ai">اسأل الـ AI</a>
-                </div>
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Python Course Card -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-brandSecondary/60 transition-all duration-300 flex flex-col justify-between group glow-effect">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="bg-blue-500/10 text-brandSecondary p-4 rounded-2xl text-3xl group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-python"></i>
+                            </div>
+                            <span class="bg-blue-500/20 text-blue-400 text-xs font-black px-3 py-1.5 rounded-full border border-blue-500/30">
+                                السن: 7 - 11 سنة
+                            </span>
+                        </div>
 
+                        <h4 class="text-2xl font-black mb-2 text-white">دورة لغة بايثون (Python)</h4>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            تعتبر بايثون اللغة الأسهل والأقوى لبداية الأطفال! يتعلم فيها الطفل أساسيات التفكير المنطقي، والمتغيرات، وإنشاء ألعاب ومسابقات تفاعلية.
+                        </p>
+
+                        <div class="mb-6 p-4 bg-slate-950 rounded-2xl border border-slate-800/80">
+                            <div class="text-xs text-slate-400 mb-1">تكلفة الدورة:</div>
+                            <div class="text-3xl font-black text-brandAccent">150 <span class="text-sm font-bold text-slate-300">جنيه مصري</span></div>
+                        </div>
+
+                        <ul class="space-y-2.5 text-xs text-slate-300 mb-8 font-semibold">
+                            <li class="flex items-center space-x-2 space-x-reverse"><i class="fa-solid fa-circle-check text-brandAccent"></i><span>أساسيات البرمجة والمفاهيم المنطقية</span></li>
+                            <li class="flex items-center space-x-2 space-x-reverse"><i class="fa-solid fa-circle-check text-brandAccent"></i><span>بناء ألعاب تفاعلية بسيطة</span></li>
+                            <li class="flex items-center space-x-2 space-x-reverse"><i class="fa-solid fa-circle-check text-brandAccent"></i><span>تطبيقات عملية لكل حصة</span></li>
+                        </ul>
+                    </div>
+
+                    <a href="#register" onclick="selectCourse('بايثون - 150 جنيه')" class="w-full bg-slate-800 hover:bg-brandSecondary text-white font-bold py-3.5 rounded-xl transition-all text-center text-sm block">
+                        اختيار دورة بايثون (150 جنيه)
+                    </a>
+                </div>
+
+                <!-- Front-End Course Card -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-brandAccent/60 transition-all duration-300 flex flex-col justify-between group glow-emerald">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="bg-emerald-500/10 text-brandAccent p-4 rounded-2xl text-3xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <span class="bg-emerald-500/20 text-emerald-400 text-xs font-black px-3 py-1.5 rounded-full border border-emerald-500/30">
+                                السن: 7 - 11 سنة
+                            </span>
+                        </div>
+
+                        <h4 class="text-2xl font-black mb-2 text-white">دورة فرونت إند (Front-End)</h4>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            يتعلم الطفل كيف يبني موقعه الإلكتروني بنفسه باستخدام لغات الويب (HTML, CSS, JS)، مع التركيز على التصميم الجذاب والألوان والإبداع.
+                        </p>
+
+                        <div class="mb-6 p-4 bg-slate-950 rounded-2xl border border-slate-800/80">
+                            <div class="text-xs text-slate-400 mb-1">تكلفة الدورة:</div>
+                            <div class="text-3xl font-black text-brandAccent">250 <span class="text-sm font-bold text-slate-300">جنيه مصري</span></div>
+                        </div>
+
+                        <ul class="space-y-2.5 text-xs text-slate-300 mb-8 font-semibold">
+                            <li class="flex items-center space-x-2 space-x-reverse"><i class="fa-solid fa-circle-check text-brandAccent"></i><span>تصميم صفحات ويب جذابة وتفاعلية</span></li>
+                            <li class="flex items-center space-x-2 space-x-reverse"><i class="fa-solid fa-circle-check text-brandAccent"></i><span>تعلم تنسيق الألوان والأشكال</span></li>
+                            <li class="flex items-center space-x-2 space-x-reverse"><i class="fa-solid fa-circle-check text-brandAccent"></i><span>مشروع موقع كامل في نهاية الدورة</span></li>
+                        </ul>
+                    </div>
+
+                    <a href="#register" onclick="selectCourse('فرونت إند - 250 جنيه')" class="w-full bg-slate-800 hover:bg-brandAccent hover:text-slate-950 text-white font-bold py-3.5 rounded-xl transition-all text-center text-sm block">
+                        اختيار دورة فرونت إند (250 جنيه)
+                    </a>
+                </div>
+
+            </div>
         </div>
-    </div>
+    </section>
 
+    <section id="register" class="py-20 bg-slate-900/60 border-t border-slate-800/80">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+                
+                <div class="text-center mb-8">
+                    <span class="text-brandAccent font-bold text-xs uppercase tracking-widest bg-brandAccent/10 px-3 py-1 rounded-full">نموذج الحجز المباشر</span>
+                    <h3 class="text-2xl sm:text-3xl font-black mt-3 mb-2">للإستفسارات والحجز عبر الواتساب</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm">اكتب بياناتك بالأسفل وسيقوم النظام بتوجيهك فوراً برسالة جاهزة لرقم الواتساب للأكاديمية.</p>
+                </div>
+
+                <form id="bookingForm" onsubmit="handleBookingSubmit(event)" class="space-y-5">
+                    
+                    <div>
+                        <label class="block text-sm font-bold text-slate-300 mb-2">اسم ولي الأمر / الطالب:</label>
+                        <input type="text" id="personName" required placeholder="مثال: أستاذ أحمد محمود" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-brandAccent transition-colors text-sm">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-300 mb-2">رقم هاتف الواتساب:</label>
+                            <input type="tel" id="whatsappPhone" required placeholder="مثال: 01123456789" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-brandAccent transition-colors text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-slate-300 mb-2">عمر الطفل (سنوات):</label>
+                            <input type="number" id="childAge" required min="1" max="18" placeholder="مثال: 9" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-brandAccent transition-colors text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-slate-300 mb-2">اختر الكورس والسعر المطلوب:</label>
+                        <select id="courseOption" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandAccent transition-colors text-sm">
+                            <option value="" disabled selected>-- اختر الدورة التدريبية --</option>
+                            <option value="دورة بايثون بسعر 150 جنيه">دورة بايثون (Python) - 150 جنيه مصري</option>
+                            <option value="دورة فرونت إند بسعر 250 جنيه">دورة فرونت إند (Front-End) - 250 جنيه مصري</option>
+                        </select>
+                    </div>
+
+                    <!-- Age Alert Error Message -->
+                    <div id="ageError" class="hidden bg-rose-500/10 border border-rose-500/30 text-rose-400 p-4 rounded-xl text-xs sm:text-sm font-bold flex items-center space-x-3 space-x-reverse">
+                        <i class="fa-solid fa-triangle-exclamation text-lg"></i>
+                        <span id="ageErrorText">عذراً، التسجيل مخصص للأطفال من سن 7 إلى 11 سنة فقط!</span>
+                    </div>
+
+                    <!-- Success Alert Message -->
+                    <div id="formSuccess" class="hidden bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 p-4 rounded-xl text-xs sm:text-sm font-bold flex items-center space-x-3 space-x-reverse">
+                        <i class="fa-solid fa-circle-check text-lg"></i>
+                        <span>تم التحقق من البيانات بنجاح! جاري تحويلك إلى تطبيق الواتساب...</span>
+                    </div>
+
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-4 rounded-xl shadow-lg shadow-emerald-600/30 transition-all text-base flex items-center justify-center space-x-2 space-x-reverse">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span>للإستفسارات والحجز عبر الواتساب</span>
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 border-t border-slate-800 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-right">
+            <div>
+                <h4 class="text-lg font-black text-white mb-1">أكاديمية الطلائع لبرمجة الأطفال</h4>
+                <p class="text-xs text-slate-400">نصنع جيل الغد البرمجي للأطفال من عمر 7 إلى 11 سنة.</p>
+            </div>
+            <div class="flex items-center space-x-6 space-x-reverse text-xs text-slate-400">
+                <span>الواتساب للحجز: <strong class="text-brandAccent" dir="ltr">01121955935</strong></span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Auto select course in form when clicked from cards
+        function selectCourse(courseVal) {
+            const selectEl = document.getElementById('courseOption');
+            if(courseVal.includes('بايثون')) {
+                selectEl.value = 'دورة بايثون بسعر 150 جنيه';
+            } else if(courseVal.includes('فرونت')) {
+                selectEl.value = 'دورة فرونت إند بسعر 250 جنيه';
+            }
+        }
+
+        // Handle booking submission
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('personName').value.trim();
+            const phone = document.getElementById('whatsappPhone').value.trim();
+            const age = parseInt(document.getElementById('childAge').value);
+            const course = document.getElementById('courseOption').value;
+
+            const ageError = document.getElementById('ageError');
+            const formSuccess = document.getElementById('formSuccess');
+
+            // Reset alerts
+            ageError.classList.add('hidden');
+            formSuccess.classList.add('hidden');
+
+            // Validate age constraint (Strictly 7 to 11)
+            if (isNaN(age) || age < 7 || age > 11) {
+                ageError.classList.remove('hidden');
+                document.getElementById('ageErrorText').innerText = `عذراً يا ${name}، عمر الطفل (${age} سنوات) غير مطابق لشرط الأكاديمية (القبول من 7 إلى 11 سنة فقط).`;
+                return;
+            }
+
+            // Show success alert
+            formSuccess.classList.remove('hidden');
+
+            // Format message exactly as requested
+            const messageText = `أن الرجل الذي يسمى ${name} يريد أن يحجز لغة ${course} في البرمجه ورقم هاتفه هو ${phone}`;
+
+            const targetPhone = "201121955935";
+            const whatsappLink = `https://wa.me/${targetPhone}?text=${encodeURIComponent(messageText)}`;
+
+            // Redirect after brief delay
+            setTimeout(() => {
+                window.open(whatsappLink, '_blank');
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
